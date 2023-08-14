@@ -1,6 +1,6 @@
 package com.nesmy.daysinyearpassedbot.service;
 
-import com.nesmy.daysinyearpassedbot.config.BotConfig;
+import com.nesmy.daysinyearpassedbot.config.BotProps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -12,9 +12,9 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Component
 public class DaysInYearPassedBot extends TelegramLongPollingBot{
 
-    final BotConfig config;
+    private final BotProps config;
 
-    public DaysInYearPassedBot(BotConfig config){
+    public DaysInYearPassedBot(BotProps config){
         this.config = config;
     }
 
@@ -43,14 +43,14 @@ public class DaysInYearPassedBot extends TelegramLongPollingBot{
     }
 
     private void startCommandReceived(long chatId, String name){
-        String answer = "Hi, " + name + "!" +
+        final String answer = "Hi, " + name + "!" +
                 "\nFrom now on, you will be notified of how many days have already passed this year (in percentage) every morning at 9:00. " +
                 "\nYou can stop receiving messages by pressing /stop";
         sendMessage(chatId, answer);
     }
 
     private void stopCommandReceived(long chatId, String name){
-        String answer = "Hi, " + name + "!" +
+        final String answer = "Hi, " + name + "!" +
                 "\nFrom now on, you will not be notified of how many days have already passed this year (in percentage) every morning at 9:00. " +
                 "\nYou can start receiving messages by pressing /start";
         sendMessage(chatId, answer);
