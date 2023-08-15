@@ -54,7 +54,7 @@ public class DaysInYearPassedBot extends TelegramLongPollingBot{
         }
     }
 
-    @Scheduled(cron = "0 25 22 * * ?")
+    @Scheduled(cron = "0 0 9 * * *")
     public void sendDailyMessages() {
         LocalDate currentDate = LocalDate.now();
         int totalDays = currentDate.getDayOfYear();
@@ -64,7 +64,7 @@ public class DaysInYearPassedBot extends TelegramLongPollingBot{
             if (entry.getValue()) {
                 long chatId = entry.getKey();
                 int percentage = (totalDays * 100) / daysInYear;
-                String message = "Percentage of days passed: " + percentage + "%";
+                String message = "Percentage of days in this year passed: " + percentage + "%";
                 sendMessage(chatId, message);
             }
         }
