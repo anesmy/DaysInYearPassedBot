@@ -1,6 +1,6 @@
 package com.nesmy.daysinyearpassedbot.config;
 
-import com.nesmy.daysinyearpassedbot.service.DaysInYearPassedBot;
+import com.nesmy.daysinyearpassedbot.component.DaysInYearPassedBot;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
